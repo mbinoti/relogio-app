@@ -31,7 +31,7 @@ class _AnalogClockState extends State<AnalogClock> {
   void initState() {
     super.initState();
     _now = DateTime.now();
-    _timer = Timer.periodic(Duration(seconds: 1), (Timer t) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (Timer t) {
       setState(() {
         _now = DateTime.now();
       });
@@ -57,7 +57,7 @@ class _AnalogClockState extends State<AnalogClock> {
               decoration: BoxDecoration(
                 color: isDarkMode ? Colors.grey[900] : Colors.white,
                 shape: BoxShape.circle,
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     offset: Offset(4, 4),
                     blurRadius: 10,
@@ -69,7 +69,7 @@ class _AnalogClockState extends State<AnalogClock> {
                 painter: ClockPainter(_now, isDarkMode),
               ),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -77,14 +77,14 @@ class _AnalogClockState extends State<AnalogClock> {
                   onPressed: () => setState(() {
                     isDarkMode = false;
                   }),
-                  child: Text('Tema Light'),
+                  child: const Text('Light'),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 ElevatedButton(
                   onPressed: () => setState(() {
                     isDarkMode = true;
                   }),
-                  child: Text('Tema Dark'),
+                  child: const Text('Dark'),
                 ),
               ],
             )
